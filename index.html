@@ -1,0 +1,180 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">  
+    <link rel="shortcut icon" type="x-icon" href="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Eo_circle_purple_letter-g.svg/2048px-Eo_circle_purple_letter-g.svg.png">
+    <title>Igtanloc</title>
+    <style>
+
+      body {
+        background: url('https://i.pinimg.com/originals/38/70/d1/3870d1fcd484fb466bffc0b80300afc7.gif') center center fixed;
+            background-size: cover;
+      }
+
+        .container {
+          width: 100%;
+          height: 100%;
+          padding-right: 15px;
+          padding-left: 15px;
+          margin-right: auto;
+          margin-left: auto;
+        }
+
+        .image {
+          background-image: url("./gigi.jpg");
+          background-size: cover;
+          background-repeat: no-repeat;
+          background-position: center; 
+          width: 200px;
+          height: 200px;
+          border-radius: 50%;
+          margin: 0 auto;
+          border: 5px solid #D7BDE2;
+        }
+
+        a {
+          font-size: large;
+        }
+
+        .w3-border {
+          border: 3px solid #ccc !important;
+        }
+
+        .links-container {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          gap: 25px;
+          font-family: Georgia, serif
+        }
+
+        .links-container a {
+          width: 80%;
+          color: #17202A !important;
+          transition: 0.2s;
+        }
+
+        .profession {
+          margin-top: 15px !important;
+        }
+
+        .profession span {
+          font-size: 14px;
+        }
+
+        .icons {
+          display: flex;
+          justify-content: center;
+          gap: 10px;
+        }
+
+        .icons a {
+          text-decoration: none;
+        }
+
+        .icons a svg {
+          fill: #fdf5e6 !important;
+          transform: scale(1);
+        }
+
+        .border {
+          border: 3px ridge #fdf5e6;
+        }
+
+  
+        .bio {
+          font-size: 11px;
+          text-align: center;
+        }
+
+        @media screen and (min-width: 768px) {
+          .link {
+            width: 100%;
+          }
+
+          a {
+            font-size: x-large;
+          }
+
+        }
+        @media screen and (min-width: 576px) {
+          .container {
+            max-width: 540px;
+          }
+
+          .profession span {
+            font-size: 24px;
+          }
+          
+          .bio {
+            font-size: 15px;
+          }
+
+        }
+      .button {
+      padding: 15px 25px;
+      font-size: 24px;
+      text-align: center;
+      cursor: pointer;
+      outline: none;
+      color: #E5E8E8;
+      background-color: rgba(253, 245, 230, 0.7);
+      border: none;
+      border-radius: 15px;
+      box-shadow: 0 9px #633974;
+    
+    }
+
+    .button:hover {background-color: #D7BDE2}
+    
+    .button:active {
+     background-color: #D7BDE2;
+     box-shadow: 0 5px #633974;
+      transform: translateY(4px);
+    }
+
+    </style>
+    <script src="https://unpkg.com/feather-icons@4.28.0/dist/feather.min.js"></script>
+  </head>
+  <body>
+    <!-- Content container -->
+    <div class="container">
+
+      <!-- Image and name container -->
+      <div class="w3-margin-top" style="text-align: center">
+        <div class="image w3-round"></div>
+        <div class="w3-text-orange" style="border:thick solid #D7BDE2" text-align="middle;">
+        <p class="profession"><span class="w3-padding w3-margin w3-large w3-bold" style="font-weight: bolder; color: #D7BDE2">GEAH SEPT IGTANLOC : InTec 1-B</span></p>
+        </div>
+        <p class="bio"><span class="w3-padding w3-margin w3-xxxlarge w3-center" style="font-family: Georgia, serif; font-weight: bolder; color: #EBDEF0">Personal Website</span></p><br>
+        </div>
+
+      <!-- Links section 1 -->
+      <div class="links-container">
+        <a href="./UnitConversions.html" class="button">Unit Conversions</a>
+        <a href="IncomeTax.html" class="button">Income Tax Calculator</a>
+        <a href="./NthFactorial.html" class="button">Nth Factorial, Sum, & Average</a>
+        <a href="./Payroll.html" class="button">Simple Payroll</a>
+      </div>
+      
+      
+      <!-- Footer. This section contains an ad for W3Schools Spaces. You can leave it to support us. -->
+      <footer class="w3-container w3-center w3-padding-48 w3-margin-top">
+        <a class="w3-margin-bottom" href="" title="gigi" target="_blank">
+          <img src="https://scontent.fcgy2-2.fna.fbcdn.net/v/t1.15752-9/368564202_1400759500540176_3857728552868662497_n.png?_nc_cat=110&ccb=1-7&_nc_sid=8cd0a2&_nc_eui2=AeE2MX6rXVzCuz8upzSY9G4CG19S0dETtVsbX1LR0RO1W85AW96_GiqsTEZP_3i0bUARMhzfwyxNGm0vslEQSeoi&_nc_ohc=yphEMBiqkTAAX_uBJ_c&_nc_ht=scontent.fcgy2-2.fna&oh=03_AdR_1P9Y4M6osbf5_rmMMEBsg-_rCGZtiNWkQ9UEFMCOqw&oe=657DA3E1" alt="This website was made with W3schools Spaces. Make your own free website today!" width="75" height="75">
+        </a> 
+      <!-- End footer -->
+      </footer>
+      </div>
+
+    </div>
+    <script>
+      feather.replace()
+    </script>
+  </body>  
+</html>
