@@ -1,0 +1,178 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="x-icon" href="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Eo_circle_purple_letter-g.svg/2048px-Eo_circle_purple_letter-g.svg.png">
+    <title>Unit Conversions</title>
+    <style>
+        body {
+            font-family: Georgia, serif;
+            text-align: center;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background: url('https://i.pinimg.com/originals/f9/ae/c9/f9aec94e8ae7df5b4012601f1b9042b6.gif') center center fixed;
+            background-size: cover;
+        }
+
+        #container {
+            position: fixed; 
+            bottom: 450px;
+            right: 540px; 
+            max-width: 1500px;
+            margin: 50 auto;
+            background-color: #2E86C1;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 10px;
+        }
+
+        #container2 {
+            position: fixed; 
+            bottom: 200px;
+            right: 780px; 
+            max-width: 400px;
+            margin: 10 auto;
+            background-color: rgba(253, 245, 230, 0.7);
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 50px;  
+        }
+
+        button {
+            background-color: #0F1E7B;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        button:hover {
+            background-color: #334FFF;
+        }
+        .back-button {
+            position: fixed;
+            top: 650px;
+            left: 600px;
+            background-color: white;
+            color: black;
+            padding: 10px;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 2.5%;
+        }
+
+        th, tr, td {
+            border:1px solid black;
+            class: center;
+
+        h1 {
+            color: #250600;
+            font-family: Georgia, serif;
+        }
+
+        h2 {
+            color: #250600;
+            font-family: Georgia, serif;
+        }
+
+        
+    </style>
+</head>
+<body>
+        <!-- Income Tax Table -->
+        <div id="container">
+        <h2>Income Tax Table</h2>
+        <button class="back-button" onclick="window.location.href='index.html'")">&#8249;</button>
+        <div style="text-align: center; width: 100%; margin: 20px 0; box-sizing: border-box;">
+    <table>
+        <tr>
+            <th>Income Range</th>
+            <th>Basic Tax + Rate</th>
+            <th>Example</th>
+        </tr>
+        <tr>
+            <td>Up to P250,000</td>
+            <td>0%</td>
+            <td>Income Tax: 0.00</td>
+        </tr>
+        <tr>
+            <td>P250,000 to P400,000</td>
+            <td>20% of the excess over P250,000</td>
+            <td>Income Tax: 14,000.00 (for P320,000)</td>
+        </tr>
+        <tr>
+            <td>P400,000 to P800,000</td>
+            <td>P30,000 + 25% of the excess over P400,000</td>
+            <td>Income Tax: 60,000.00 (for P520,000)</td>
+        </tr>
+        <tr>
+            <td>P800,000 to P2,000,000</td>
+            <td>P130,000 + 30% of the excess over P800,000</td>
+            <td>Income Tax: 169,000.00 (for P930,000)</td>
+        </tr>
+        <tr>
+            <td>P2,000,000 to P8,000,000</td>
+            <td>P490,000 + 32% of the excess over P2,000,000</td>
+            <td>Income Tax: 618,000.00 (for P2,400,000)</td>
+        </tr>
+        <tr>
+            <td>Over P8,000,000</td>
+            <td>P2,410,000 + 35% of the excess over P8,000,000</td>
+            <td>Income Tax: 3,110,000.00 (for P10,000,000)</td>
+        </tr>
+    </table>
+</div> </div>
+
+<!-- Income Tax Calculator -->
+<div id="container2">
+<h1>Income Tax Calculator</h1>
+<div style="text-align: center; width: 100%; margin: 20px 0; box-sizing: border-box;">
+
+    <label for="taxableIncome">Enter Taxable Income:</label>
+    <input type="number" id="taxableIncome">
+
+    <button class="back-button" onclick="window.location.href='index.html'")">&#8249;</button>
+    <button type="button" onclick="calculateIncomeTax()">CALCULATE INCOME TAX</button>
+    </form>
+        
+        <div id="result"></div>
+</div>
+</div>
+
+
+<script>
+    function calculateIncomeTax() {
+        var income = parseFloat(document.getElementById("taxableIncome").value);
+        var tax = 0;
+         if (income <= 250000) {
+            tax = 0;
+        } else if (income <= 400000) {
+            tax = (income - 250000) * 0.2;
+        } else if (income <= 800000) {
+            tax = ((income - 400000) * 0.25) + 30000;
+        } else if (income <= 2000000) {
+            tax = ((income - 800000) * 0.3) + 130000;
+        } else if (income <= 8000000) {
+            tax = ((income - 2000000) * 0.32) + 490000;
+        } else {
+            tax = ((income - 8000000) * 0.35) + 2410000;
+        }
+        document.getElementById("result").innerHTML = "Income Tax: Php " + tax.toFixed(2);
+    }
+</script>
+
+    </div>
+  </body>
+</html>
