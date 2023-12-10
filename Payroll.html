@@ -1,0 +1,233 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="x-icon" href="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Eo_circle_purple_letter-g.svg/2048px-Eo_circle_purple_letter-g.svg.png">
+    <title>Unit Conversions</title>
+    <style>
+        body {
+            font-family: Georgia, serif;
+            text-align: center;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background: url('https://i.gifer.com/embedded/download/4MgB.gif') center center fixed;
+            background-size: cover;
+        }
+
+        #container {
+            position: fixed; 
+            bottom: 100px;
+            right: 100px; 
+            max-width: 1500px;
+            margin: 50 auto;
+            background-color: rgba(253, 245, 230, 0.7);
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 10px;
+        }
+
+        #container2 {
+            position: fixed; 
+            bottom: 280px;
+            right: 1320px; 
+            max-width: 200px;
+            margin: 10 auto;
+            background-color: rgba(253, 245, 230, 0.7);
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 50px;  
+        }
+
+        #container3 {
+            position: fixed; 
+            bottom: 610px;
+            right: 1180px; 
+            max-width: 700px;
+            margin: 10 auto;
+            background-color: rgba(253, 245, 230, 0.7);
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 30px;  
+        }
+
+        button {
+            background-color: #CDA40B;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        button:hover {
+            background-color: #F1C40F;
+        }
+        .back-button {
+            position: fixed;
+            top: 500px;
+            left: 250px;
+            background-color: white;
+            color: black;
+            padding: 10px;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 2.5%;
+        }
+
+        th, tr, td {
+            border:1px solid black;
+            class: center;
+
+        h1 {
+            color: #250600;
+            font-family: Georgia, serif;
+        }
+
+        h2 {
+            color: #250600;
+            font-family: Georgia, serif;
+        }
+
+        
+    </style>
+</head>
+
+        <!-- Payroll -->
+        <div id="container3">
+        <h1>Payroll Management System</h1>
+
+        <div id="container2">
+        <button class="back-button" onclick="window.location.href='index.html'")">&#8249;</button>
+        <div style="text-align: center; width: 100%; margin: 20px 0; box-sizing: border-box;">
+
+  <form id="payrollForm">
+    <label for="name">Employee Name:</label>
+    <input type="text" id="name" name="name" required>
+
+    <label for="daysWorked">Days Worked:</label>
+    <input type="number" id="daysWorked" name="daysWorked" required>
+
+    <label for="dailyRate">Daily Rate:</label>
+    <input type="number" id="dailyRate" name="dailyRate" required>
+
+    <label for="deductionAmount">Deduction Amount:</label>
+    <input type="number" id="deductionAmount" name="deductionAmount" required>     
+    <br><br>
+
+    <button type="button" onclick="addEmployee()">ADD EMPLOYEE</button>
+  </form>
+
+        <div id="container">
+  <table id="payrollTable">
+    <tr>
+      <th>No.</th>
+      <th>Employee Name</th>
+      <th>Days Worked</th>
+      <th>Daily Rate</th>
+      <th>Gross Pay</th>
+      <th>Deduction Amount</th>
+      <th>Net Pay</th>
+      <th>Action</th>
+    </tr>
+  </table>
+
+  <script>
+    let payrollList = [];
+
+    function calculatePay(daysWorked, dailyRate, deductionAmount) {
+      const grossPay = daysWorked * dailyRate;
+      const netPay = grossPay - deductionAmount;
+      return { grossPay, netPay };
+    }
+
+    function displayPayrollTable() {
+      const payrollTable = document.getElementById('payrollTable');
+      payrollTable.innerHTML = `
+        <tr>
+          <th>No.</th>
+          <th>Employee Name</th>
+          <th>Days Worked</th>
+          <th>Daily Rate</th>
+          <th>Gross Pay</th>
+          <th>Deduction Amount</th>
+          <th>Net Pay</th>
+          <th>Action</th>
+        </tr>
+      `;
+
+      payrollList.forEach((employee, index) => {
+        const { grossPay, netPay } = calculatePay(employee.daysWorked, employee.dailyRate, employee.deductionAmount);
+        const row = payrollTable.insertRow();
+        row.innerHTML = `
+          <td>${index + 1}</td>
+          <td>${employee.name}</td>
+          <td>${employee.daysWorked}</td>
+          <td>${employee.dailyRate}</td>
+          <td>${grossPay}</td>
+          <td>${employee.deductionAmount}</td>
+          <td>${netPay}</td>
+          <td><button class="delete-button" onclick="deleteEmployee(${index})">Delete</button></td>
+        `;
+      });
+    }
+
+    function addEmployee() {
+      const form = document.getElementById('payrollForm');
+      const name = form.elements['name'].value;
+      const daysWorked = parseInt(form.elements['daysWorked'].value);
+      const dailyRate = parseInt(form.elements['dailyRate'].value);
+      const deductionAmount = parseInt(form.elements['deductionAmount'].value);
+
+      payrollList.push({ name, daysWorked, dailyRate, deductionAmount });
+      displayPayrollTable();
+
+      // Clear the form fields
+      form.reset();
+    }
+
+    function deleteEmployee(index) {
+      payrollList.splice(index, 1);
+      displayPayrollTable();
+    }
+  </script>
+
+</body>
+</html>
+
+
+<script>
+    function calculateIncomeTax() {
+        var income = parseFloat(document.getElementById("taxableIncome").value);
+        var tax = 0;
+         if (income <= 250000) {
+            tax = 0;
+        } else if (income <= 400000) {
+            tax = (income - 250000) * 0.2;
+        } else if (income <= 800000) {
+            tax = ((income - 400000) * 0.25) + 30000;
+        } else if (income <= 2000000) {
+            tax = ((income - 800000) * 0.3) + 130000;
+        } else if (income <= 8000000) {
+            tax = ((income - 2000000) * 0.32) + 490000;
+        } else {
+            tax = ((income - 8000000) * 0.35) + 2410000;
+        }
+        document.getElementById("result").innerHTML = "Income Tax: Php " + tax.toFixed(2);
+    }
+</script>
+
+    </div>
+  </body>
+</html>
