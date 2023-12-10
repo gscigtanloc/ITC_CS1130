@@ -57,6 +57,40 @@
             margin: 5px;
             font-family: Georgia, serif;
         }   
+
+        .modal {
+         display: none;
+         position: fixed;
+         top: 0;
+         left: 0;
+         width: 100%;
+         height: 100%;
+         background-color: rgba(0, 0, 0, 0.5);
+         z-index: 1000;
+         justify-content: center;
+         align-items: center;
+        }
+        
+        .modal-content {
+         background-color: white;
+         padding: 200px;
+         border-radius: 100px;
+         text-align: center;
+         font-family: 'Franklin Gothic', sans-serif;
+            max-width: 400px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 250px;
+        }
+
+    .w3-yellow,
+    .w3-hover-purple:hover,
+    .w3-text-black, .result {
+         color: #AA37FF !important;
+         background-color: black !important;
+    }
         
     </style>
 </head>
@@ -78,13 +112,24 @@
         <button class=>Enter Value:</label>
         <input type="number" id="inputValue">
 
-        <button onclick="convert()">CONVERT</button>
+        <button type="button" onclick="openConfirmationModal()">CONVERT</button>
+        <div id="confirmModal" class="modal">
+        <div class="modal-content">
+        <p>Are you sure you want to convert the value?</p>
+        <button id="confirmDelete" class="w3-button w3-hover-red w3-large w3-round-xlarge w3-yellow link">Confirm</button>
+        <button id="cancelDelete" class="w3-button w3-hover-green w3-large w3-round-xlarge w3-yellow link">Cancel</button>
+
+      </div>
+    </div>
+
+    </form>
+    <div id="result"></div>
+        
+    <p id="result"></p>
         <br>  
         <br>  
         <br>  
         <button class="back-button" onclick="window.location.href='index.html'")">...GO BACK...</button>
-        
-        <p id="result"></p>
     </div>
 
     <script>
@@ -113,6 +158,31 @@
 
             document.getElementById("result").innerHTML = `Result: ${result.toFixed(2)}`;
         }
+
+    function openConfirmationModal() {
+      var modal = document.getElementById('confirmModal');
+      modal.style.display = 'block';
+    }
+
+    function cancelCalculation() {
+      var modal = document.getElementById('confirmModal');
+      modal.style.display = 'none';
+    }
+
+    function confirmCalculation() {
+      convert();
+      cancelCalculation();
+    }
+    
+    // Event listener for Confirm and Cancel Button
+    document.getElementById('confirmDelete').addEventListener('click', function() {
+      confirmCalculation();
+    });
+
+    document.getElementById('cancelDelete').addEventListener('click', function() {
+      cancelCalculation();
+    });
+
     </script>
 
         </div>
