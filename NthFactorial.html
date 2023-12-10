@@ -42,9 +42,11 @@
             cursor: pointer;
             margin: 5px;
         }
+
         button:hover {
             background-color: #00BC03;
         }
+
         .back-button {
             background-color: #06360E;
             color: white;
@@ -53,29 +55,90 @@
             border-radius: 5px;
             cursor: pointer;
             margin: 5px;
-            font-family: Georgia, serif;
         }
+
+        .modal {
+         display: none;
+         position: fixed;
+         top: 0;
+         left: 0;
+         width: 100%;
+         height: 100%;
+         background-color: rgba(0, 0, 0, 0.5);
+         z-index: 1000;
+         justify-content: center;
+         align-items: center;
+        }
+        
+        .modal-content {
+         background-color: white;
+         padding: 200px;
+         border-radius: 100px;
+         text-align: center;
+         font-family: 'Franklin Gothic', sans-serif;
+            max-width: 400px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 250px;
+        }
+
+    .w3-yellow,
+    .w3-hover-purple:hover,
+    .w3-text-black, .result {
+         color: #AA37FF !important;
+         background-color: black !important;
+    }
         
     </style>
 </head>
+<body>
+     <!-- Nth Factorial, Sum, & Average content -->
+     <div id="container">
+     <h1>Nth Factorial, Sum, & Average</h1>
 
-<!-- Nth Factorial, Sum, & Average content -->
-    <div id="container">
-    <h1>Nth Factorial, Sum, & Average</h1>
+     <div class="converter-container">
 
-    <label for="numberInput">Enter a number (n): </label>
-    <input type="number" id="numberInput">
-    <button onclick="calculate()">CALCULATE</button>
-    <br>  
-    <br>  
-    <br>  
-    <button class="back-button" onclick="window.location.href='index.html'")">...GO BACK...</button>
+     <label for="numberInput">Enter a number (n): </label>
+     <input type="number" id="numberInput">
 
-    <div id="output">
-        <!-- Results will be displayed here -->
-    </div>
+     <button type="button" onclick="openConfirmationModal()">CALCULATE</button>
+     <div id="confirmModal" class="modal">
+     <div class="modal-content">
+     <p>Are you sure you want to calculate the number?</p>
+     <button id="confirmDelete" class="w3-button w3-hover-red w3-large w3-round-xlarge w3-yellow link">Confirm</button>
+     <button id="cancelDelete" class="w3-button w3-hover-green w3-large w3-round-xlarge w3-yellow link">Cancel</button>
+        </div>
+        </div>
+
+    <div id="output"></div>
 
 <script>
+    function openConfirmationModal() {
+      var modal = document.getElementById('confirmModal');
+      modal.style.display = 'block';
+    }
+
+    function cancelCalculation() {
+      var modal = document.getElementById('confirmModal');
+      modal.style.display = 'none';
+    }
+
+    function confirmCalculation() {
+      calculate();
+      cancelCalculation();
+    }
+    
+    // Event listener for Confirm and Cancel Button
+    document.getElementById('confirmDelete').addEventListener('click', function() {
+      confirmCalculation();
+    });
+
+    document.getElementById('cancelDelete').addEventListener('click', function() {
+      cancelCalculation();
+    });
+
     function calculate() {
         // Get the input value
         var n = document.getElementById('numberInput').value;
@@ -120,6 +183,14 @@
             <p>Average: ${average.toFixed(2)}</p>
         `;
     }
+
 </script>
+
+        <br>  
+        <br>  
+        <br>  
+        <button class="back-button" onclick="window.location.href='index.html'")">...GO BACK...</button>
+    </div>
+
 </body>
 </html>
