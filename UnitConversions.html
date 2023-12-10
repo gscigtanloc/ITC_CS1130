@@ -42,9 +42,20 @@
             cursor: pointer;
             margin: 5px;
         }
+
         button:hover {
             background-color: #BD2100;
         }
+
+        .back-button {
+            background-color: #250600;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+        }   
         
     </style>
 </head>
@@ -54,7 +65,6 @@
         <h1>Unit Conversions</h1>
 
         <div class="converter-container">
-            <h1></h1>
 
         <label for="conversionType">Select Conversion Type:</label>
         <select id="conversionType">
@@ -68,7 +78,11 @@
         <input type="number" id="inputValue">
 
         <button onclick="convert()">CONVERT</button>
-
+        <br>  
+        <br>  
+        <br>  
+        <button class="back-button" onclick="window.location.href='index.html'")">...GO BACK...</button>
+        
         <p id="result"></p>
     </div>
 
@@ -99,13 +113,6 @@
             document.getElementById("result").innerHTML = `Result: ${result.toFixed(2)}`;
         }
     </script>
-
-    <br>
-    <br>
-
-    <div>
-    <button class="back-button" onclick="window.location.href='index.html'")">...GO BACK...</button>
-    </div>
 
         </div>
       </div>
