@@ -29,7 +29,7 @@
         }
 
         h1 {
-            color: #250600;
+            color: #06360E;
             font-family: Georgia, serif;
         }
 
@@ -46,20 +46,13 @@
             background-color: #00BC03;
         }
         .back-button {
-            position: fixed;
-            top: 480px;
-            left: 640px;
-            background-color: white;
-            color: black;
-            padding: 10px;
+            background-color: #06360E;
+            color: white;
+            padding: 10px 20px;
             border: none;
-            border-radius: 50%;
+            border-radius: 5px;
             cursor: pointer;
-            font-size: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 2.5%;
+            margin: 5px;
         }
         
     </style>
@@ -67,17 +60,19 @@
 
 <!-- Nth Factorial, Sum, & Average content -->
     <div id="container">
-    <h2>Nth Factorial, Sum, & Average</h2>
-    <button class="back-button" onclick="window.location.href='index.html'")">&#8249;</button>
+    <h1>Nth Factorial, Sum, & Average</h1>
 
     <label for="numberInput">Enter a number (n): </label>
     <input type="number" id="numberInput">
     <button onclick="calculate()">CALCULATE</button>
+    <br>  
+    <br>  
+    <br>  
+    <button class="back-button" onclick="window.location.href='index.html'")">...GO BACK...</button>
 
     <div id="output">
         <!-- Results will be displayed here -->
     </div>
-</div>
 
 <script>
     function calculate() {
@@ -125,7 +120,5 @@
         `;
     }
 </script>
-
-
 </body>
 </html>
